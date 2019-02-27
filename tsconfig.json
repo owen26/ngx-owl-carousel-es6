@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "lib-carousel": [
+        "dist/lib-carousel"
+      ],
+      "lib-carousel/*": [
+        "dist/lib-carousel/*"
+      ],
+      "owl-carousel": [
+        "dist/owl-carousel"
+      ],
+      "owl-carousel/*": [
+        "dist/owl-carousel/*"
+      ]
+    }
   }
 }
