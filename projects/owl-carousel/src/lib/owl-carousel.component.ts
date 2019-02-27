@@ -3,10 +3,12 @@ import {
   OnInit,
   AfterViewInit,
   ElementRef,
-  ViewEncapsulation
+  ViewEncapsulation,
+  Input
 } from '@angular/core';
 import * as jQuery from 'jquery';
 import 'owl.carousel.es6';
+import { OwlCarouselOptions } from './models';
 
 @Component({
   selector: 'owl-carousel',
@@ -15,6 +17,8 @@ import 'owl.carousel.es6';
   encapsulation: ViewEncapsulation.None
 })
 export class OwlCarouselComponent implements OnInit, AfterViewInit {
+  @Input() options: OwlCarouselOptions;
+
   constructor(private el: ElementRef) {}
 
   ngOnInit() {}
