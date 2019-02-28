@@ -1,6 +1,20 @@
 <article>
-  <h1>Owl Carousel 2 for Angular</h1>
+  <h1>Owl Carousel for Angular</h1>
+  <h2>Basic</h2>
   <section>
-    <owl-carousel></owl-carousel>
+    <owl-carousel [items]="items"></owl-carousel>
+  </section>
+  <h2>Custom template</h2>
+  <section>
+    <owl-carousel [items]="itemsB" [template]="tpl">
+      <ng-template #tpl let-item>
+        <div
+          class="my-slide"
+          [style.background-image]="'url(' + item.url + ')' | safe: 'style'"
+        >
+          {{ item.title }}
+        </div>
+      </ng-template>
+    </owl-carousel>
   </section>
 </article>

@@ -4,11 +4,14 @@ import {
   AfterViewInit,
   ElementRef,
   ViewEncapsulation,
-  Input
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef
 } from '@angular/core';
 import * as jQuery from 'jquery';
 import 'owl.carousel.es6';
-import { OwlCarouselOptions } from './models';
+import { OwlCarouselOptions, DefaultOwlCarouselOptions } from './models';
 
 @Component({
   selector: 'owl-carousel',
@@ -16,20 +19,33 @@ import { OwlCarouselOptions } from './models';
   styleUrls: ['./owl-carousel.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class OwlCarouselComponent implements OnInit, AfterViewInit {
+export class OwlCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() options: OwlCarouselOptions;
+  @Input() items: any[];
+  @Input() template: TemplateRef<any>;
 
   constructor(private el: ElementRef) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const itemsAreStrings =
+      this.items && this.items.every(i => typeof i === 'string');
+    if (!itemsAreStrings && !this.template) {
+      throw new Error('Carousel template not defined');
+    }
+  }
 
   ngAfterViewInit() {
     const $ele = jQuery(this.el.nativeElement).find('.owl-carousel') as any;
+    const options = Object.assign({}, DefaultOwlCarouselOptions, this.options);
+    $ele.owlCarousel(options);
+  }
 
-    $ele.owlCarousel({
-      loop: true,
-      items: 1,
-      autoplay: true
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.options) {
+      // TODO: reinit owl
+    }
+    if (changes.items) {
+      // TODO: reinit owl
+    }
   }
 }

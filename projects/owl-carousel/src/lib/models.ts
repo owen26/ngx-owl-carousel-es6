@@ -54,3 +54,9 @@ export interface OwlCarouselOptions {
   navContainer: any;
   checkVisible: boolean;
 }
+
+export const DefaultOwlCarouselOptions: Partial<OwlCarouselOptions> = {
+  loop: true,
+  items: 1,
+  autoplay: true
+};
