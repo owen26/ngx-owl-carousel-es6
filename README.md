@@ -1,5 +1,7 @@
 # Owl Carousel for Angular
 
+**Not working yet, please do not use for now**
+
 I have been using Owl Carousel for several years since jQuery was still the "go to" option for frontend development. Even though it's not the case anymore but I still can't find any "modern" carousel library doing the job better than Owl Carousel.
 
 The motivation for creating this Angular wrapper is to let the good old Owl Carousel shine again in Angular world.
