@@ -24,6 +24,9 @@ export class OwlCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() items: any[];
   @Input() template: TemplateRef<any>;
 
+  private $ele: any;
+  private $carousel: any;
+
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
@@ -35,17 +38,36 @@ export class OwlCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
-    const $ele = jQuery(this.el.nativeElement).find('.owl-carousel') as any;
-    const options = Object.assign({}, DefaultOwlCarouselOptions, this.options);
-    $ele.owlCarousel(options);
+    this.$ele = jQuery(this.el.nativeElement).find('.owl-carousel') as any;
+    this.reinit();
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.options) {
-      // TODO: reinit owl
+    // console.log('changes', changes);
+    if (
+      (changes.options && !changes.options.firstChange) ||
+      (changes.items && !changes.items.firstChange)
+    ) {
+      this.reinit();
     }
-    if (changes.items) {
-      // TODO: reinit owl
+  }
+
+  private reinit() {
+    if (!this.$ele) {
+      return;
     }
+
+    if (this.$carousel) {
+      this.$carousel.trigger('destroy.owl.carousel');
+    }
+
+    setTimeout(() => {
+      const options = Object.assign(
+        {},
+        DefaultOwlCarouselOptions,
+        this.options
+      );
+      this.$carousel = this.$ele.owlCarousel(options);
+    });
   }
 }

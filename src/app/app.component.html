@@ -1,11 +1,15 @@
 <article>
   <h1>Owl Carousel for Angular</h1>
-  <h2>Basic</h2>
   <section>
-    <owl-carousel [items]="items"></owl-carousel>
+    <h2>Basic</h2>
+    <owl-carousel [items]="items" [options]="options"></owl-carousel>
+    <div>
+      <button (click)="randomizeItems()">Randomize items</button>
+      <button (click)="randomizeItemsSize()">Randomize size</button>
+    </div>
   </section>
-  <h2>Custom template</h2>
   <section>
+    <h2>Custom template</h2>
     <owl-carousel [items]="itemsB" [template]="tpl">
       <ng-template #tpl let-item>
         <div
