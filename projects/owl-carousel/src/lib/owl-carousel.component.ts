@@ -13,6 +13,8 @@ import * as jQuery from 'jquery';
 import 'owl.carousel.es6';
 import { OwlCarouselOptions, DefaultOwlCarouselOptions } from './models';
 
+const $ = (jQuery as any).default || jQuery;
+
 @Component({
   selector: 'owl-carousel',
   templateUrl: './owl-carousel.component.html',
@@ -38,7 +40,7 @@ export class OwlCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
-    this.$ele = jQuery(this.el.nativeElement).find('.owl-carousel') as any;
+    this.$ele = $(this.el.nativeElement).find('.owl-carousel') as any;
     this.reinit();
   }
 

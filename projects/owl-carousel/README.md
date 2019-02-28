@@ -1,24 +1,39 @@
-# OwlCarousel
+# Owl Carousel for Angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+I have been using Owl Carousel for several years since jQuery was still the "go to" option for frontend development. Even though it's not the case anymore but I still can't find any "modern" carousel library doing the job better than Owl Carousel.
 
-## Code scaffolding
+The motivation for creating this Angular wrapper is to let the good old Owl Carousel shine again in Angular world.
 
-Run `ng generate component component-name --project owl-carousel` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project owl-carousel`.
-> Note: Don't forget to add `--project owl-carousel` or else it will be added to the default project in your `angular.json` file. 
+There are already a few excellent Angular wrappers exists on npm but this one is going to focus on the following goals:
 
-## Build
+- Simplicity - get started in no time
+- Flexibility - customisable options and templates, in Angular way
+- Cleanness - no extra js/css configuration needed, no modification to _angular.json_
 
-Run `ng build owl-carousel` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Install it
 
-## Publishing
+```
+npm install jquery @xinan/ngx-owl-carousel
+```
 
-After building your library with `ng build owl-carousel`, go to the dist folder `cd dist/owl-carousel` and run `npm publish`.
+## Import it
 
-## Running unit tests
+```javascript
+import { OwlCarouselModule } from '@xinan/ngx-owl-carousel';
 
-Run `ng test owl-carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, OwlCarouselModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-## Further help
+## Use it
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<owl-carousel [items]="items" [options]="options"></owl-carousel>
+```
+
+TODO: add more usage examples

@@ -3,5 +3,6 @@
   "dest": "../../dist/owl-carousel",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": ["owl.carousel.es6"]
 }

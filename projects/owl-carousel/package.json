@@ -1,12 +1,12 @@
 {
-  "name": "ngx-owl-carousel-es6",
+  "name": "@xinan/ngx-owl-carousel",
   "version": "1.0.0",
   "author": "Xinan <taoxinan+pub@gmail.com>",
   "repository": "github:owen26/ngx-owl-carousel-es6",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "jquery": "^3.3.1"
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "jquery": ">=1.8.3"
   },
   "dependencies": {
     "owl.carousel.es6": "^3.0.1"
